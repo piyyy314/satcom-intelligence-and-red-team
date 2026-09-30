@@ -1,0 +1,6 @@
+{
+  "name": "Ghost-Watch C2 Terminal",
+  "description": "An advanced satellite communications (SATCOM) intelligence, monitoring, and red-team audit terminal featuring real-time SDR spectrum simulators, ACU de-pointing, DSSS covert links, and timing drift monitoring.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
