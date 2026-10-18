@@ -1,21 +1,23 @@
 # GHOST-WATCH C2: SATCOM Intelligence & Security Audit Terminal
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-orange.svg)](https://opensource.org/licenses/MIT)
-[![Node.js CI](https://github.com/baalbek313/ghost-watch-c2/actions/workflows/node.js.yml/badge.svg)](https://github.com)
-[![Python CI](https://github.com/baalbek313/ghost-watch-c2/actions/workflows/python.yml/badge.svg)](https://github.com)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-cyan.svg)](https://github.com)
+[![License: MIT](https://img.shields.io/badge/License-MIT-orange.svg)](LICENSE)
+[![GHOST-WATCH CI](https://github.com/baalbek313/ghost-watch-c2/actions/workflows/ci.yml/badge.svg)](https://github.com/baalbek313/ghost-watch-c2/actions/workflows/ci.yml)
+[![Node.js Version](https://img.shields.io/badge/Node.js-18.x%20%7C%2020.x-green.svg)](https://nodejs.org/)
+[![Python Version](https://img.shields.io/badge/Python-3.9%20%7C%203.10%20%7C%203.11%20%7C%203.12-blue.svg)](https://www.python.org/)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-cyan.svg)](CONTRIBUTING.md)
 
-**GHOST-WATCH C2** is an advanced, full-stack satellite communications (SATCOM) monitoring, diagnostics, and security-hardening console. Designed for satellite network engineers, SDR enthusiasts, and security auditors, this system bridges the gap between physical-layer telemetry and digital-layer cybersecurity.
+**GHOST-WATCH C2** is an advanced, full-stack satellite communications (SATCOM) monitoring, diagnostics, and security-hardening console. Designed for satellite network engineers, SDR enthusiasts, and security auditors, this system bridges the gap between physical-layer RF telemetry and digital-layer cybersecurity.
 
-The system features real-time simulated Software Defined Radio (SDR) spectrum analyzers, Direct Sequence Spread Spectrum (DSSS) Low Probability of Intercept (LPI) modulators, Post-Quantum Cryptographic (PQC) validation ceremonies, and an active **Cognitive AI Copilot** running server-side LLMs to analyze telemetry anomalies and compile on-the-fly defensive playbooks.
+The system features real-time simulated Software Defined Radio (SDR) spectrum analyzers with rolling spectrogram waterfall displays, Direct Sequence Spread Spectrum (DSSS) Low Probability of Intercept (LPI) modulators, Post-Quantum Cryptographic (PQC) validation ceremonies, sunlight-readable Daytime Field Operation mode, and an active **Cognitive AI Copilot** running server-side Gemini models to analyze telemetry anomalies and compile on-the-fly defensive playbooks.
 
 ---
 
 ## 🛰️ Core Features
 
-*   **RF Spectrum Analyzer & Waterfall Display**: Captures live simulated IQ frequency samples (approximating ADALM-Pluto SDR feeds), displaying real-time power spectral density and rolling spectrogram waterfall histories.
+*   **RF Spectrum Analyzer & Rolling Waterfall**: Captures live simulated IQ frequency samples (approximating ADALM-Pluto SDR feeds), displaying real-time power spectral density and rolling spectrogram waterfall histories rendered via high-performance HTML5 Canvas.
+*   **Daytime Field Operation Mode**: Instant high-contrast, sunlight-readable UI theme toggle designed for tactical field audits under bright outdoor lighting, complemented by the default obsidian dark theme.
 *   **DSSS LPI Modulator Playground**: Interactive digital signal processing (DSP) environment demonstrating how to spread arbitrary ASCII messages under the noise floor using selectable Gold code spreading sequences (7, 11, or 15 chips/bit).
-*   **Post-Quantum Key Ceremonies (Kyber & Dilithium)**: Interactive simulation of modern PQC standard implementations for satellite command-and-control links, safeguarding telemetry streams from future quantum-computer decryption.
+*   **Post-Quantum Key Ceremonies (Kyber & Dilithium)**: Interactive simulation of modern PQC standard implementations (ML-KEM / ML-DSA) for satellite command-and-control links, safeguarding telemetry streams from quantum-adversary decryption.
 *   **GPS Clock Drift & Timing Sync Audit**: Monitors NMEA data streams for microsecond timing drift, auditing TDMA slot alignment and protecting against timing spoofing/jamming attacks.
 *   **Cognitive AI Threat Shield (Gemini-Powered)**: Full-stack integration with Gemini 3.8-Flash to automatically correlate physical-layer telemetry anomalies (e.g., sudden SNR drops or ACU offset shifts) with digital indicators, compiling detailed diagnoses and 3-step tactical playbooks.
 *   **Cognitive Script Compiler**: An active on-demand code synthesis interface that translates custom operator testing scenarios into executable Python 3 and Scapy defensive scripts.
@@ -28,16 +30,34 @@ The system features real-time simulated Software Defined Radio (SDR) spectrum an
 The repository is organized into a full-stack React + Express web application and a packaged, distributable Python diagnostic toolkit:
 
 ```text
+├── .github/
+│   ├── workflows/
+│   │   ├── ci.yml              # GitHub Actions CI for Node.js build & Python test matrix
+│   │   └── release.yml         # Automated release packaging on version tags
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── bug_report.yml      # Interactive GitHub issue form for bug reports
+│   │   ├── feature_request.yml # Interactive GitHub issue form for feature requests
+│   │   └── config.yml          # Issue template settings & security contact link
+│   ├── dependabot.yml          # Automated dependency updates for npm and pip
+│   └── PULL_REQUEST_TEMPLATE.md# Standard PR checklist & testing instructions
+├── .editorconfig               # Cross-IDE indentation & formatting consistency
+├── .gitattributes              # Line-ending normalization & linguist definitions
+├── .gitignore                  # Comprehensive ignore rules (Node, Vite, Python, OS)
 ├── .env.example                # Template for environment variables (API keys)
 ├── package.json                # Node.js Full-stack dependencies & scripts
 ├── server.ts                   # Express server with Vite middleware & Gemini proxy
 ├── tsconfig.json               # TypeScript compiler options
 ├── vite.config.ts              # Vite configuration with Tailwind CSS v4 support
-├── index.html                  # HTML entry point for the C2 web console
+├── index.html                  # HTML entry point with synced SEO & OpenGraph meta
+├── CHANGELOG.md                # Keep a Changelog compliant release history
+├── CONTRIBUTING.md             # Developer setup, testing, and contribution guidelines
+├── CODE_OF_CONDUCT.md          # Contributor Covenant Code of Conduct v2.1
+├── SECURITY.md                 # Security policy & responsible vulnerability disclosure
+├── LICENSE                     # MIT License
 ├── src/                        # React Frontend
-│   ├── App.tsx                 # Core C2 Terminal Dashboard & simulation state
+│   ├── App.tsx                 # Core C2 Terminal Dashboard, Spectrogram & simulation state
 │   ├── main.tsx                # App entrypoint
-│   └── index.css               # Global styled-sheet & terminal HMR configurations
+│   └── index.css               # Global styled-sheet & terminal scanline effects
 ├── ghostwatch_tools/           # Standalone Python 3 SATCOM Diagnostic Toolkit
 │   ├── __init__.py             # Python package constructor
 │   ├── acu_depoint.py          # Telnet Serial-over-Ethernet SCADA ACU adjuster
@@ -47,14 +67,12 @@ The repository is organized into a full-stack React + Express web application an
 │   ├── dsss_modulator.py       # DSSS BPSK mathematical modulator with Gold sequences
 │   ├── modem_snr_monitor.py    # Telnet SNR query logger
 │   ├── cve_scanner.py          # Firmware auth-bypass command-sanitization auditor
-│   ├── tr069_monitor.py        # CWMP XML SOAP SOAP listener
+│   ├── tr069_monitor.py        # CWMP XML SOAP listener
 │   └── signal_anomaly.py       # Continuous baseline SNR/BER background monitor
-├── tests/                      # Python automated test suites
+├── tests/                      # Automated test suite (compatible with pytest & unittest)
 │   ├── __init__.py
-│   └── test_tools.py           # Pytest unit tests for the Python toolkit
-├── pyproject.toml              # PyPI package distribution configuration
-├── LICENSE                     # MIT License
-└── README.md                   # System documentation
+│   └── test_tools.py           # Unit tests for the Python diagnostic toolkit
+└── pyproject.toml              # PyPI package distribution configuration & CLI entry points
 ```
 
 ---
@@ -65,8 +83,8 @@ The GHOST-WATCH C2 Web Console runs as an Express full-stack server proxying the
 
 ### Prerequisites
 
-*   **Node.js**: $\ge 18.x$
-*   **Gemini API Key**: Configured in your environment to unlock the AI Threat Shield and Script Compiler.
+*   **Node.js**: $\ge 18.x$ (Recommended: `20.x`)
+*   **Gemini API Key**: (Optional) Configured in `.env` to unlock the Cognitive AI Threat Shield and Script Compiler.
 
 ### Installation
 
@@ -96,12 +114,13 @@ The GHOST-WATCH C2 Web Console runs as an Express full-stack server proxying the
    ```
    Open your browser and navigate to `http://localhost:3000`.
 
-### Building for Production
+### Typechecking & Building for Production
 
-To build the static React assets and compile the full-stack server into highly optimized ESM:
+To run static analysis and compile the full-stack server into an optimized ESM bundle:
 ```bash
-npm run build
-npm start
+npm run lint    # TypeScript typecheck
+npm run build   # Production Vite frontend build + esbuild server bundle
+npm start       # Start production server on port 3000
 ```
 
 ---
@@ -112,58 +131,57 @@ The standalone Python utilities in `ghostwatch_tools/` are fully structured for 
 
 ### Installation from Source
 
-You can install the utilities locally in edit/developer mode:
+You can install the toolkit locally in editable developer mode:
 ```bash
-pip install -e .
+pip install -e .[dev]
 ```
 
-To run Pytest verification sweeps:
+Once installed, convenient CLI shortcut commands become available:
 ```bash
-pip install pytest scapy numpy scipy matplotlib
-pytest tests/
+ghostwatch-gps --tolerance 25
+ghostwatch-dsss --msg "SATCOM" --factor 15
+ghostwatch-spectrum --sim
+ghostwatch-pep --sim
+ghostwatch-acu --ip 192.168.10.50
+ghostwatch-cve --ip 192.168.100.1
+ghostwatch-snr --ip 192.168.100.1
+ghostwatch-tr069 --port 7547
+ghostwatch-anomaly --duration 10
 ```
 
-### Usage Examples
+### Running Automated Tests
 
-1. **Launch GPS Drift Monitoring**:
-   ```bash
-   python -m ghostwatch_tools.gps_monitor
-   ```
+Run the test suite using `pytest`:
+```bash
+pytest tests/ -v
+```
 
-2. **Plot Live ADALM-Pluto SDR Spectrum (Requires physical PlutoSDR connected)**:
-   ```bash
-   python -m ghostwatch_tools.pluto_spectrum
-   ```
-
-3. **Perform an ACU De-pointing Alignment Check (SCADA Simulated)**:
-   ```bash
-   python -m ghostwatch_tools.acu_depoint --ip 192.168.10.50
-   ```
+Or run directly without external test dependencies using Python's standard library:
+```bash
+python3 -m unittest discover -s tests
+```
 
 ---
 
 ## 🔒 Security Notice & Disclaimer
 
-**GHOST-WATCH C2** is designed strictly for **educational simulations, laboratory audits, and academic demonstrations**. 
+**GHOST-WATCH C2** is designed strictly for **educational simulations, laboratory audits, and authorized academic demonstrations**. 
 *   All attack simulations (ACU offset injection, PEP state exhaustion, GPS time-drifting) are managed in a safe, sandboxed client-side state machine.
 *   The Python diagnostics are dual-use tools intended to help ground station operators harden their local facilities against physical-layer vulnerabilities and configure robust, compliant systems.
 *   Do not deploy these tools against remote systems or satellite networks without explicit, documented authorization.
+*   See [SECURITY.md](SECURITY.md) for our vulnerability disclosure policy.
 
 ---
 
 ## 📄 License
 
-Distributed under the MIT License. See `LICENSE` for more information.
+Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
 
 ---
 
 ## 🤝 Contributing
 
 We welcome contributions from SATCOM engineers, cybersecurity researchers, and developers!
-1. Fork the project.
-2. Create your feature branch: `git checkout -b feature/amazing-feature`
-3. Commit your changes: `git commit -m 'Add amazing feature'`
-4. Push to the branch: `git push origin feature/amazing-feature`
-5. Open a Pull Request.
+Please review our [Contributing Guidelines](CONTRIBUTING.md) and [Code of Conduct](CODE_OF_CONDUCT.md) before submitting pull requests.
 
-*(C) 2026 GHOST-WATCH OFFENSIVE & DEPLOYMENT LABS. RESTRICTED LAB-USE CONTEXT.*
+*(C) 2026 GHOST-WATCH LABS. AUTHORIZED LAB-USE CONTEXT.*

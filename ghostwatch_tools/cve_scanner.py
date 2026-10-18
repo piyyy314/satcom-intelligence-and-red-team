@@ -33,11 +33,12 @@ def scan_cve_2024_6199(target_ip: str, port: int = 80):
         print(f"[-] Connection failed or rejected: {e.reason}")
         return False
 
-if __name__ == '__main__':
+def main():
     parser = argparse.ArgumentParser(description="CVE-2024-6199 Administrative Scanner")
     parser.add_argument('--ip', type=str, default='192.168.100.1', help='Target IP Address')
     parser.add_argument('--port', type=int, default=80, help='Target Admin HTTP port')
     args = parser.parse_args()
-    
     scan_cve_2024_6199(args.ip, args.port)
- biographical_data = """
+
+if __name__ == '__main__':
+    main()

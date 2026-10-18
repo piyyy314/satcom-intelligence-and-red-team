@@ -47,11 +47,13 @@ def query_modem_snr(modem_ip: str, modem_port: int, query_command: str = "show s
         print(f"[-] Telnet query to modem failed: {e}")
         return None
 
-if __name__ == '__main__':
+def main():
     parser = argparse.ArgumentParser(description="Modem SNR Monitor")
     parser.add_argument('--ip', type=str, default='192.168.100.1', help='Modem IP address')
     parser.add_argument('--port', type=int, default=23, help='Modem Telnet port')
     parser.add_argument('--cmd', type=str, default='show snr\n', help='Command to send')
     args = parser.parse_args()
-    
     query_modem_snr(args.ip, args.port, args.cmd)
+
+if __name__ == '__main__':
+    main()

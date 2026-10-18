@@ -54,10 +54,12 @@ def monitor_gps_drift(tolerance_ms: float = 50, duration_seconds: int = 10):
         print("\n[*] Monitoring terminated.")
         return True
 
-if __name__ == '__main__':
+def main():
     parser = argparse.ArgumentParser(description="GPS Timing Drift Monitor")
     parser.add_argument('--tolerance', type=float, default=50.0, help='Drift Tolerance in milliseconds')
     parser.add_argument('--duration', type=int, default=10, help='Audit monitoring duration in seconds')
     args = parser.parse_args()
-    
     monitor_gps_drift(args.tolerance, args.duration)
+
+if __name__ == '__main__':
+    main()

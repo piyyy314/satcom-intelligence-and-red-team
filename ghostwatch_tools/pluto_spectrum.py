@@ -61,10 +61,12 @@ def run_pluto_capture(pluto_ip: str = "ip:192.168.2.1", simulate: bool = False):
         print("[*] Launching simulated fall-back...")
         return run_pluto_capture(pluto_ip, simulate=True)
 
-if __name__ == '__main__':
+def main():
     parser = argparse.ArgumentParser(description="ADALM-Pluto SDR Spectrum Capture")
     parser.add_argument('--ip', type=str, default='ip:192.168.2.1', help='PlutoSDR URI or IP address')
     parser.add_argument('--sim', action='store_true', help='Force simulated SDR behavior')
     args = parser.parse_args()
-    
     run_pluto_capture(args.ip, args.sim)
+
+if __name__ == '__main__':
+    main()

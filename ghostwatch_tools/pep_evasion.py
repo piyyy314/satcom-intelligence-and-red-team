@@ -51,11 +51,13 @@ def test_pep_evasion(target_ip: str, target_port: int = 80, simulate: bool = Fal
     print("[+] PEP Evasion testing complete. Check modem state logs.")
     return True
 
-if __name__ == '__main__':
+def main():
     parser = argparse.ArgumentParser(description="SATCOM PEP State Evasion Tester")
     parser.add_argument('--ip', type=str, default='10.10.10.5', help='Modem gateway IP address')
     parser.add_argument('--port', type=int, default=80, help='Modem admin HTTP port')
     parser.add_argument('--sim', action='store_true', help='Run fully simulated test without Scapy dependency')
     args = parser.parse_args()
-    
     test_pep_evasion(args.ip, args.port, args.sim)
+
+if __name__ == '__main__':
+    main()

@@ -7,13 +7,31 @@ name = "ghostwatch-tools"
 version = "1.0.0"
 description = "Vetted standalone Python 3 utilities for satellite communications telemetry monitoring and security audits"
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.9"
 license = { text = "MIT" }
 authors = [
     { name = "GHOST-WATCH Labs", email = "baalbek.313@gmail.com" }
 ]
+keywords = [
+    "satcom",
+    "satellite",
+    "sdr",
+    "dsss",
+    "security-audit",
+    "telemetry",
+    "radio-frequency",
+    "red-team"
+]
 classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: System Administrators",
     "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
     "Topic :: Scientific/Engineering :: Interface Devices",
@@ -30,6 +48,23 @@ dependencies = [
 dev = [
     "pytest>=7.0.0",
 ]
+
+[project.scripts]
+ghostwatch-gps = "ghostwatch_tools.gps_monitor:main"
+ghostwatch-dsss = "ghostwatch_tools.dsss_modulator:main"
+ghostwatch-spectrum = "ghostwatch_tools.pluto_spectrum:main"
+ghostwatch-pep = "ghostwatch_tools.pep_evasion:main"
+ghostwatch-acu = "ghostwatch_tools.acu_depoint:main"
+ghostwatch-cve = "ghostwatch_tools.cve_scanner:main"
+ghostwatch-snr = "ghostwatch_tools.modem_snr_monitor:main"
+ghostwatch-tr069 = "ghostwatch_tools.tr069_monitor:main"
+ghostwatch-anomaly = "ghostwatch_tools.signal_anomaly:main"
+
+[project.urls]
+Homepage = "https://github.com/baalbek313/ghost-watch-c2"
+Repository = "https://github.com/baalbek313/ghost-watch-c2"
+Issues = "https://github.com/baalbek313/ghost-watch-c2/issues"
+Changelog = "https://github.com/baalbek313/ghost-watch-c2/blob/main/CHANGELOG.md"
 
 [tool.setuptools]
 packages = ["ghostwatch_tools"]

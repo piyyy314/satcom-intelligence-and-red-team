@@ -42,10 +42,12 @@ def monitor_tr069_requests(port: int = 7547, max_connections: int = 2):
     finally:
         server.close()
 
-if __name__ == '__main__':
+def main():
     parser = argparse.ArgumentParser(description="TR-069 CWMP Configuration Monitor")
     parser.add_argument('--port', type=int, default=7547, help='Port to bind and listen on')
     parser.add_argument('--count', type=int, default=2, help='Max connection sweeps to handle')
     args = parser.parse_args()
-    
     monitor_tr069_requests(args.port, args.count)
+
+if __name__ == '__main__':
+    main()

@@ -46,10 +46,12 @@ def simulate_acu_depoint(acu_ip: str, port: int = 4000):
         print(f"[-] ACU Connection failed: {e}")
         return False
 
-if __name__ == '__main__':
+def main():
     parser = argparse.ArgumentParser(description="ACU Target De-pointing Simulator")
     parser.add_argument('--ip', type=str, default='192.168.10.50', help='Target ACU IP address')
     parser.add_argument('--port', type=int, default=4000, help='Target ACU Management port')
     args = parser.parse_args()
-    
     simulate_acu_depoint(args.ip, args.port)
+
+if __name__ == '__main__':
+    main()

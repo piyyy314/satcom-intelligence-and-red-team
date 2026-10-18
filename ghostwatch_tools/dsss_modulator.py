@@ -51,10 +51,12 @@ def spread_and_report(word: str, factor: int = 11):
     print(f"    Normal spectral density dropped by approx {10 * np.log10(factor):.1f} dB.")
     return True
 
-if __name__ == '__main__':
+def main():
     parser = argparse.ArgumentParser(description="DSSS Covert LPI Modulator")
     parser.add_argument('--msg', type=str, default='SAT', help='Message word to modulate')
     parser.add_argument('--factor', type=int, default=11, choices=[7, 11, 15], help='Spreading chips factor')
     args = parser.parse_args()
-    
     spread_and_report(args.msg, args.factor)
+
+if __name__ == '__main__':
+    main()

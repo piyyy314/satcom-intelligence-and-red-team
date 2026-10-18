@@ -1,7 +1,7 @@
 {
-  "name": "react-example",
-  "private": true,
-  "version": "0.0.0",
+  "name": "ghost-watch-c2",
+  "version": "1.0.0",
+  "description": "Satellite communications (SATCOM) intelligence, monitoring, and red-team audit terminal",
   "type": "module",
   "scripts": {
     "dev": "tsx server.ts",
@@ -9,8 +9,21 @@
     "start": "NODE_ENV=production node server.js",
     "preview": "vite preview",
     "clean": "rm -rf dist server.js",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit",
+    "test": "tsc --noEmit"
   },
+  "keywords": [
+    "satcom",
+    "satellite",
+    "sdr",
+    "dsss",
+    "cybersecurity",
+    "red-team",
+    "telemetry",
+    "gemini-api"
+  ],
+  "author": "GHOST-WATCH Labs",
+  "license": "MIT",
   "dependencies": {
     "@google/genai": "^2.4.0",
     "@tailwindcss/vite": "^4.1.14",

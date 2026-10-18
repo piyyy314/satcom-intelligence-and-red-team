@@ -36,11 +36,13 @@ def monitor_signal_baseline(duration_seconds: int = 6, snr_threshold: float = 10
         print("\n[*] Stopped.")
         return True
 
-if __name__ == '__main__':
+def main():
     parser = argparse.ArgumentParser(description="Signal Baseline Anomaly Monitor")
     parser.add_argument('--duration', type=int, default=6, help='Monitoring duration in seconds')
     parser.add_argument('--snr', type=float, default=10.0, help='SNR threshold limit in dB')
     parser.add_argument('--ber', type=float, default=1e-6, help='BER threshold limit')
     args = parser.parse_args()
-    
     monitor_signal_baseline(args.duration, args.snr, args.ber)
+
+if __name__ == '__main__':
+    main()
