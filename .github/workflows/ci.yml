@@ -34,7 +34,7 @@ jobs:
 
   test-python-tools:
     name: Python Diagnostic Toolkit Tests
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     strategy:
       fail-fast: false
       matrix:
