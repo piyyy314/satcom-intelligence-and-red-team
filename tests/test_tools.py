@@ -72,7 +72,7 @@ def test_nmea_parsing():
 
 
 def test_pep_evasion_simulation():
-    assert test_pep_evasion(target_ip="127.0.0.1", target_port=80, simulate=True) is True
+    assert run_pep_evasion(target_ip="127.0.0.1", target_port=80, simulate=True) is True
 
 
 def test_signal_anomaly_simulation():
