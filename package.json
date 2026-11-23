@@ -34,7 +34,7 @@
     "vite": "^8.3.8",
     "express": "^4.21.2",
     "dotenv": "^18.0.10",
-    "motion": "^12.23.24"
+    "motion": "^14.14.0"
   },
   "devDependencies": {
     "@types/node": "^26.6.6",
