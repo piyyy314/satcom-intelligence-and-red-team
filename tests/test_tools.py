@@ -7,7 +7,7 @@ Compatible with both pytest and python -m unittest.
 import unittest
 
 from ghostwatch_tools.gps_monitor import parse_pseudo_nmea, monitor_gps_drift
-from ghostwatch_tools.pep_evasion import test_pep_evasion
+from ghostwatch_tools.pep_evasion import test_pep_evasion as run_pep_evasion
 from ghostwatch_tools.signal_anomaly import monitor_signal_baseline
 
 try:
@@ -55,7 +55,7 @@ class TestGhostWatchTools(unittest.TestCase):
 
     def test_pep_evasion_simulation(self):
         """Verify the PEP evasion tester runs correctly in simulation mode."""
-        res = test_pep_evasion(target_ip="127.0.0.1", target_port=80, simulate=True)
+        res = run_pep_evasion(target_ip="127.0.0.1", target_port=80, simulate=True)
         self.assertTrue(res)
 
     def test_signal_anomaly_simulation(self):
