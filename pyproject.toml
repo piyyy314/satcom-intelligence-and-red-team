@@ -61,7 +61,7 @@ ghostwatch-tr069 = "ghostwatch_tools.tr069_monitor:main"
 ghostwatch-anomaly = "ghostwatch_tools.signal_anomaly:main"
 
 [project.urls]
-Homepage = "https://github.com/baalbek313/ghost-watch-c2"
+Homepage = "https://github.com/piyyy314/satcom-intelligence-and-red-team"
 Repository = "https://github.com/baalbek313/ghost-watch-c2"
 Issues = "https://github.com/baalbek313/ghost-watch-c2/issues"
 Changelog = "https://github.com/baalbek313/ghost-watch-c2/blob/main/CHANGELOG.md"
