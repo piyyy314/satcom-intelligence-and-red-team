@@ -25,7 +25,7 @@
   "author": "GHOST-WATCH Labs",
   "license": "MIT",
   "dependencies": {
-    "@google/genai": "^2.4.0",
+    "@google/genai": "^3.6.1",
     "@tailwindcss/vite": "^4.1.14",
     "@vitejs/plugin-react": "^6.3.0",
     "lucide-react": "^1.77.0",
